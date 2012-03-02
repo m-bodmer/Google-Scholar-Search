@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" id="viewport" content="width=device-width, height=device-height,user-scalable=yes" />
+<title>BlackBerry Smartphone CMER Lab</title>
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="scripts/jquery.js"></script>
+<script type="text/javascript" src="scripts/script.js"></script>
+<script type="text/javascript" src="scripts/jquery.tools.min.js"></script>
+
+<!--jQuery UI Includes -->
+<link type="text/css" href="css/sunny/jquery-ui-1.8.17.custom.css" rel="stylesheet" />	
+<script type="text/javascript" src="scripts/jquery-ui-1.8.17.custom.min.js"></script>
+
+<!--Overlay function -->
+<script type="text/javascript">
+$(document).ready(function() {
+	$("input[rel]").overlay();
+	});
+</script>
+
+<script>
+	$(function() {
+		$( ".nicebuttons input" ).button({
+            icons: {
+                primary: "ui-icon-clipboard"
+            },
+        })
+        $("#searchbutton button").button({
+			icons: {
+                primary: "ui-icon-zoomin"
+            },
+        })
+	});
+</script>
+
+</head>
+<body>
+
+<div id="header">
+		<div id="logo"></div>
+		<div id="headertext"><center>Google Scholar CMER Lab</center></div>
+</div>
+	
+<div id="container" style="text-align: center">
+
+  	<div id="abouttheapp">
+		Use this application to obtain Google Scholar statistics about any published Author. 
+   	</div>
+
+	<div class = "nicebuttons"> 
+		<div id="visitcmer">
+			<input type='button' onclick="window.location.href='http://cmer.uoguelph.ca/'"  value="Visit the CMER website"/>
+		</div>
+
+		<div id="aboutbutton">
+			<input type='button' rel="#mies1" value="About the application"/>
+		</div>
+	</div>
+
+	<div id="scholarsearchbox">
+ 	 	<input type="text" id="searchbox" onkeypress="handleKeyPress(event,this.form)"/>	 	
+	</div>
+
+	<div id="searchbutton"> 
+ 	 		<button onclick="getScholarResults(document.getElementById('searchbox').value);">Search</button>
+	</div>
+
+	<div id="results"></div>
+	<div id="searchinfo">
+	</div>
+	
+	<div id="loading" style="display:none">
+			<img src="images/loading.gif" height="200px" width="200px"/>
+	</div>
+	
+	<div class="simple_overlay" id="mies1">
+			<div class="details">
+			This application allows you to use Google Scholar to obtain statistics about the Author input into the search box. 
+			</div>
+	</div>
+</div>
+</body>
+</html>
